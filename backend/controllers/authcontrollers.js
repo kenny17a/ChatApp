@@ -53,14 +53,14 @@ export const login = async (req, res) => {
       user?.password || ""
     );
     if (!user || !isPasswordCorrect) {
-      return res.status(400).json({ error: "Invalid credentials" });
+      return res.status(400).json({ error: "Invalid Credentials" });
     }
     generateTokenAndCookie(user._id, res);
 
     res.status(200).json({
       _id: user._id,
       fullName: user.fullName,
-      username: user.userName,
+      userName: user.userName,
       profilePic: user.profilePic,
     });
   } catch (error) {
